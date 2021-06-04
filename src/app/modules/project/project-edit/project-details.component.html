@@ -1,0 +1,89 @@
+<h1>Project Setup</h1>
+
+<form class="form-field" [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+  <mat-horizontal-stepper formArrayName="formArray">
+    <mat-step formGroupName="0" [stepControl]="formArray?.get([0])" label="Project details">
+      <div class="mat-step-container">
+        <mat-form-field>
+          <mat-label>Name</mat-label>
+          <input matInput formControlName="name" placeholder="name">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Description</mat-label>
+          <input matInput formControlName="description" placeholder="description">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Date acquired</mat-label>
+          <input matInput formControlName="acquiredDate" [matDatepicker]="acquiredDate">
+          <mat-datepicker-toggle matSuffix [for]="acquiredDate"></mat-datepicker-toggle>
+          <mat-datepicker #acquiredDate></mat-datepicker>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperNext type="button">Next</button>
+        </div>
+      </div>
+    </mat-step>
+
+    <mat-step formGroupName="1" [stepControl]="formArray?.get([1])" label="Project Estimates">
+      <div class="mat-step-container">
+        <mat-form-field>
+          <mat-label>Estimated Costs</mat-label>
+          <input matInput formControlName="estimatedCost" type="number" placeholder="estimated costs">
+        </mat-form-field>
+        <mat-form-field >
+          <mat-label>Estimated start date</mat-label>
+          <input matInput formControlName="estimatedStartDate" [matDatepicker]="estimatedStartDate" readonly>
+          <mat-datepicker-toggle matSuffix [for]="estimatedStartDate"></mat-datepicker-toggle>
+          <mat-datepicker #estimatedStartDate></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Estimated end date</mat-label>
+          <input matInput formControlName="estimatedEndDate" [matDatepicker]="estimatedEndDate" readonly>
+          <mat-datepicker-toggle matSuffix [for]="estimatedEndDate"></mat-datepicker-toggle>
+          <mat-datepicker #estimatedEndDate></mat-datepicker>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperPrevious type="button">Back</button>
+          <button mat-button matStepperNext type="button">Next</button>
+        </div>
+      </div>
+    </mat-step>
+
+    <mat-step formGroupName="2" [stepControl]="formArray?.get([2])" label="Project Configuration">
+      <div class="mat-step-container">
+        <mat-form-field>
+          <mat-label>Status</mat-label>
+          <mat-select>
+            <mat-option *ngFor="let status of statuses" [value]="status.value">
+              {{status.value}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Default Daily Hours</mat-label>
+          <input matInput formControlName="dailyHours" type="number" placeholder="Default daily hours">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Maximum Allowed Hours</mat-label>
+          <input matInput formControlName="maximumAllowedHours" type="number" placeholder="Maximum Allowed Hours">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Notes</mat-label>
+          <input matInput formControlName="notes" placeholder="project notes">
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperPrevious type="button">Back</button>
+          <button mat-button matStepperNext type="button">Next</button>
+        </div>
+      </div>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Done</ng-template>
+      <p>Click on submit button if you wish to finalize the capturing of project details.</p>
+      <div>
+        <button mat-button matStepperPrevious type="button">Back</button>
+        <button mat-button>Submit</button>
+      </div>
+    </mat-step>
+  </mat-horizontal-stepper>
+</form>

@@ -30,7 +30,7 @@ export class ProjectComponent implements OnInit, AfterViewInit {
   }
 
   redirectToDetails(id) {
-     this.router.navigate(['projects/create']);
+     this.router.navigate(['projects/edit']);
   }
 
   redirectToDelete(id) {
