@@ -1,0 +1,56 @@
+<h1>User Setup</h1>
+
+<form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+  <mat-horizontal-stepper formArrayName="formArray" linear #stepper>
+    <mat-step formGroupName="0" [stepControl]="formArray?.get([0])" label="User details">
+      <div class="mat-step-container">
+        <mat-form-field>
+          <mat-label>Username</mat-label>
+          <input id="username" matInput placeholder="username" formControlName="username">
+<!--          <div *ngIf="formGroup?.get('username').errors?.required">Username is required.</div>-->
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Password</mat-label>
+          <input matInput placeholder="password" type="password" formControlName="password">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Role</mat-label>
+          <mat-select>
+            <mat-option *ngFor="let role of roles" [value]="role.value">
+              {{role.value}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperNext type="button">Next</button>
+        </div>
+      </div>
+    </mat-step>
+
+    <mat-step formGroupName="1" [stepControl]="formArray?.get([1])" label="Account details">
+      <div class="mat-step-container">
+        <mat-form-field>
+          <mat-label>Account status</mat-label>
+          <mat-select formControlName="selectedStatus">
+            <mat-option *ngFor="let status of statuses" [value]="status.value">
+              {{status.value}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperPrevious type="button">Back</button>
+          <button mat-button matStepperNext type="button">Next</button>
+        </div>
+      </div>
+    </mat-step>
+
+    <mat-step formGroupName="2" [stepControl]="formArray?.get([2])">
+      <ng-template matStepLabel>Done</ng-template>
+      <p>You are now ready to submit your changes</p>
+      <div>
+        <button mat-button matStepperPrevious type="button">Back</button>
+        <button mat-button>Submit</button>
+      </div>
+    </mat-step>
+  </mat-horizontal-stepper>
+</form>

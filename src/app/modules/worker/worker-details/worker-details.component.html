@@ -1,0 +1,111 @@
+<h1>Worker Setup</h1>
+
+<form class="form-field" [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+  <mat-horizontal-stepper formArrayName="formArray">
+    <mat-step formGroupName="0" [stepControl]="formArray?.get([0])" label="Worker details">
+      <div class="mat-step-container">
+        <mat-form-field>
+          <mat-label>Name</mat-label>
+          <input matInput formControlName="name" placeholder="name">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Surname</mat-label>
+          <input matInput formControlName="surname" placeholder="surname">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>ID number</mat-label>
+          <input matInput formControlName="idNumber" placeholder="ID number">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Date of Birth</mat-label>
+          <input matInput formControlName="dateOfBirth" [matDatepicker]="dateOfBirth" readonly>
+          <mat-datepicker-toggle matSuffix [for]="dateOfBirth"></mat-datepicker-toggle>
+          <mat-datepicker #dateOfBirth></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Gender</mat-label>
+          <mat-select>
+            <mat-option *ngFor="let gender of genders" [value]="gender.value">
+              {{gender.value}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperNext type="button">Next</button>
+        </div>
+      </div>
+    </mat-step>
+
+    <mat-step formGroupName="1" [stepControl]="formArray?.get([1])" label="Contact Details">
+      <div class="mat-step-container">
+        <mat-form-field>
+          <mat-label>Contact number</mat-label>
+          <input matInput formControlName="contactNumber" placeholder="contact number">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Address Line 1</mat-label>
+          <input matInput formControlName="addressLine1">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Address Line 2</mat-label>
+          <input matInput formControlName="addressLine2">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Address Line 3</mat-label>
+          <input matInput formControlName="addressLine3">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Postal Code</mat-label>
+          <input matInput formControlName="postalCode">
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperPrevious type="button">Back</button>
+          <button mat-button matStepperNext type="button">Next</button>
+        </div>
+      </div>
+    </mat-step>
+
+    <mat-step formGroupName="2" [stepControl]="formArray?.get([2])" label="Employment Details">
+      <div class="mat-step-container">
+        <mat-form-field>
+          <mat-label>Hourly Rate</mat-label>
+          <input matInput formControlName="hourlyRate" placeholder="hourly rate">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Job Title</mat-label>
+          <mat-select>
+            <mat-option *ngFor="let jobTitle of jobTitles" [value]="jobTitle.value">
+              {{jobTitle.value}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Project</mat-label>
+          <mat-select>
+            <mat-option *ngFor="let project of projects" [value]="project.name">
+              {{project.name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Start Date</mat-label>
+          <input matInput [matDatepicker]="effectiveFromDate" readonly>
+          <mat-datepicker-toggle matSuffix [for]="effectiveFromDate"></mat-datepicker-toggle>
+          <mat-datepicker #effectiveFromDate></mat-datepicker>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperPrevious type="button">Back</button>
+          <button mat-button matStepperNext type="button">Next</button>
+        </div>
+      </div>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Done</ng-template>
+      <p>You are now done.</p>
+      <div>
+        <button mat-button matStepperPrevious type="button">Back</button>
+        <button mat-button>Submit</button>
+      </div>
+    </mat-step>
+  </mat-horizontal-stepper>
+</form>
