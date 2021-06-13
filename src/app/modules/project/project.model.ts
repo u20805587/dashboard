@@ -1,7 +1,7 @@
 export class Project {
 
   id?: number;
-  name: string;
+  name?: string;
   description?: string;
   status?: string;
   notes?: string;

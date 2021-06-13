@@ -21,4 +21,8 @@ export class ProjectApiService {
   getProjects(): Observable<Project[]> {
     return this.http.get<Project[]>(`${this.baseUrl}`);
   }
+
+   getProject(id: number): Observable<Project> {
+      return this.http.get<Project>(`${this.baseUrl}/${id}`);
+    }
 }

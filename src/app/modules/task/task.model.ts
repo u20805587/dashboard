@@ -1,8 +1,7 @@
 export class Task {
 
   id?: number;
-  name: string;
+  name?: string;
   description?: string;
-  project?: string;
 
 }
