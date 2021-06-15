@@ -12,6 +12,7 @@ import {TaskComponent} from "./modules/task/task.component";
 import {TaskDetailsComponent} from "./modules/task/task-details/task-details.component";
 import {TaskEditComponent} from "./modules/task/task-edit/task-edit.component";
 import {SubTaskComponent} from "./modules/subtask/subtask.component";
+import {SubTaskDetailsComponent} from "./modules/subtask/subtask-details/subtask-details.component";
 import {ProjectEditComponent} from "./modules/project/project-edit/project-edit.component";
 
 const routes: Routes = [{
@@ -69,7 +70,11 @@ const routes: Routes = [{
     {
       path: 'subtasks',
       component: SubTaskComponent
-    }
+    },
+    {
+      path: 'subtasks/create',
+      component: SubTaskDetailsComponent
+    },
   ]
 }];
 

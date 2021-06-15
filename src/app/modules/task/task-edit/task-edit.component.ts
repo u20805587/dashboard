@@ -27,7 +27,7 @@ export class TaskEditComponent implements OnInit {
 ngOnInit() {
   this.activatedRoute.paramMap.subscribe(params => {
     this.id = params.get('id');
-    this.taskService.getTasks(parseInt(this.id, 10)).subscribe(data => {
+    this.taskService.getTask(parseInt(this.id, 10)).subscribe(data => {
       this.task = data;
 
       this.formGroup = this._formBuilder.group({

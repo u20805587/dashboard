@@ -18,11 +18,11 @@ export class TaskApiService {
       {headers: new HttpHeaders().set('Content-Type', 'application/json; charset=UTF-8')});
   }
 
-  getTask(): Observable<Task[]> {
+  getTasks(): Observable<Task[]> {
     return this.http.get<Task[]>(`${this.baseUrl}`);
   }
 
- getTasks(id: number): Observable<Task> {
+ getTask(id: number): Observable<Task> {
     return this.http.get<Task>(`${this.baseUrl}/${id}`);
   }
 

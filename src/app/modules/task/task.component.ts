@@ -20,7 +20,7 @@ export class TaskComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
-    this.taskService.getTask().subscribe(data => {
+    this.taskService.getTasks().subscribe(data => {
       this.dataSource.data = data;
     })
   }

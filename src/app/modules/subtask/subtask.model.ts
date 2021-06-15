@@ -1,8 +1,10 @@
 export class SubTask {
 
   id?: number;
-  subTaskName: string;
+  siteTask?: number;
+  subTaskName?: string;
   subTaskDescription?: string;
   meterCost?: number;
   squareMeterCost?: number;
+  cubicMeterCost?: number;
 }

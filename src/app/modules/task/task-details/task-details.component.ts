@@ -33,7 +33,7 @@ export class TaskDetailsComponent implements OnInit {
     let formArray = this.formGroup.get('formArray').value;
     let task: Task = {
       name: formArray[0].name,
-      description: formArray[0].description,
+      description: formArray[0].description
     }
 
     this.taskService.addTask(task).subscribe((data) => {
