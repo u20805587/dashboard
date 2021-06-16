@@ -1,40 +1,44 @@
 import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
-import {Project} from "../project/project.model";
 import {MatPaginator, MatTableDataSource} from "@angular/material";
+import {Task} from "./task.model";
+import {Router} from "@angular/router";
+import {TaskApiService} from "./task-api.service";
 
 @Component({
-  selector: 'app-task',
+  selector: 'app-worker',
   templateUrl: './task.component.html',
   styleUrls: ['./task.component.scss']
 })
 export class TaskComponent implements OnInit, AfterViewInit {
 
-  projects: Project[];
-
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
-  public displayedColumns = ['name', 'description', 'project', 'update', 'delete'];
-  public dataSource = new MatTableDataSource<Project>();
+  public displayedColumns = ['name', 'description','update', 'delete'];
+  public dataSource = new MatTableDataSource<Task>();
 
-  constructor() {
+  constructor(private router: Router, private taskService: TaskApiService) {
+  }
+
+  ngOnInit() {
+    this.taskService.getTasks().subscribe(data => {
+      this.dataSource.data = data;
+    })
   }
 
   ngAfterViewInit(): void {
     this.dataSource.paginator = this.paginator;
   }
 
-  ngOnInit() {
+  redirectToDetails(id) {
+     console.log('Testing String' + id)
+     this.router.navigate(['tasks/edit',id]);
   }
 
-  view(id) {
-
-  }
-
-  delete(id) {
+  redirectToDelete(id) {
 
   }
 
   addTask() {
-
+    this.router.navigate(['tasks/create']);
   }
 }

@@ -23,7 +23,12 @@ import {WorkerComponent} from './modules/worker/worker.component';
 import {UserDetailsComponent} from './modules/user/user-details/user-details.component';
 import { WorkerDetailsComponent } from './modules/worker/worker-details/worker-details.component';
 import {HttpClientModule} from "@angular/common/http";
-import { TaskComponent } from './modules/task/task.component';
+import {TaskComponent } from './modules/task/task.component';
+import {TaskDetailsComponent } from './modules/task/task-details/task-details.component';
+import {TaskEditComponent } from './modules/task/task-edit/task-edit.component';
+import {SubTaskComponent } from './modules/subtask/subtask.component';
+import {SubTaskDetailsComponent } from './modules/subtask/subtask-details/subtask-details.component';
+import {ProjectEditComponent} from './modules/project/project-edit/project-edit.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +40,11 @@ import { TaskComponent } from './modules/task/task.component';
     UserDetailsComponent,
     WorkerDetailsComponent,
     TaskComponent,
+    TaskDetailsComponent,
+    TaskEditComponent,
+    SubTaskComponent,
+    SubTaskDetailsComponent,
+    ProjectEditComponent,
   ],
   imports: [
     BrowserModule,

@@ -9,6 +9,11 @@ import {ProjectDetailsComponent} from "./modules/project/project-details/project
 import {UserDetailsComponent} from "./modules/user/user-details/user-details.component";
 import {WorkerDetailsComponent} from "./modules/worker/worker-details/worker-details.component";
 import {TaskComponent} from "./modules/task/task.component";
+import {TaskDetailsComponent} from "./modules/task/task-details/task-details.component";
+import {TaskEditComponent} from "./modules/task/task-edit/task-edit.component";
+import {SubTaskComponent} from "./modules/subtask/subtask.component";
+import {SubTaskDetailsComponent} from "./modules/subtask/subtask-details/subtask-details.component";
+import {ProjectEditComponent} from "./modules/project/project-edit/project-edit.component";
 
 const routes: Routes = [{
   path: '',
@@ -43,9 +48,33 @@ const routes: Routes = [{
       component: ProjectDetailsComponent
     },
     {
+      path: 'projects/edit/:id',
+      component: ProjectEditComponent
+    },
+    {
+      path: 'tasks/edit/:id',
+      component: TaskEditComponent
+    },
+    {
       path: 'tasks',
       component: TaskComponent
-    }
+    },
+    {
+      path: 'projects/create',
+      component: ProjectDetailsComponent
+    },
+    {
+      path: 'tasks/create',
+      component: TaskDetailsComponent
+    },
+    {
+      path: 'subtasks',
+      component: SubTaskComponent
+    },
+    {
+      path: 'subtasks/create',
+      component: SubTaskDetailsComponent
+    },
   ]
 }];
 
