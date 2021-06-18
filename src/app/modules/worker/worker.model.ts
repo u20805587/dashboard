@@ -18,5 +18,6 @@ export class Worker {
   username: string;
   password: string;
   stateCode: string;
+  userStatus: string;
 
 }

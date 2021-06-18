@@ -22,6 +22,12 @@ export class WorkerDetailsComponent implements OnInit {
     {value: 'Female'}
   ];
 
+  statuses: Item[] = [
+    {value: 'Active'},
+    {value: 'Locked'},
+    {value: 'Inactive'}
+  ];
+
   jobTitles: Item[] = [
     {value: 'Supervisor'},
     {value: 'Project Lead'},
@@ -42,7 +48,8 @@ export class WorkerDetailsComponent implements OnInit {
           middleName: '',
           surname: '',
           idNumber: '',
-          birthDate: ''
+          birthDate: '',
+          gender: ''
         }),
         this._formBuilder.group({
           contactNumber: '',
@@ -52,7 +59,10 @@ export class WorkerDetailsComponent implements OnInit {
           postalCode: ''
         }),
         this._formBuilder.group({
-          hourlyRate: ''
+          hourlyRate: '',
+          username: '',
+          password: '',
+          userStatus: ''
         })
       ])
     });
@@ -62,10 +72,11 @@ export class WorkerDetailsComponent implements OnInit {
     let formArray = this.formGroup.get('formArray').value;
     let worker: Worker = {
       name: formArray[0].name,
-      middleName: '',
+      middleName: formArray[0].middleName,
       surname: formArray[0].surname,
       idNumber: formArray[0].idNumber,
       birthDate: formArray[0].birthDate,
+      gender: formArray[0].gender,
       addressLine1: formArray[1].addressLine1,
       addressLine2: formArray[1].addressLine2,
       addressLine3: formArray[1].addressLine3,
@@ -73,8 +84,9 @@ export class WorkerDetailsComponent implements OnInit {
       hourlyRate: formArray[2].hourlyRate,
       nationality: '',
       siteWorkerCategory: '',
-      username: '',
-      password: '',
+      username: formArray[2].username,
+      password: formArray[2].password,
+      userStatus: formArray[2].userStatus,
       stateCode: ''
     }
     this.workerService.addWorker(worker).subscribe((data) => {
