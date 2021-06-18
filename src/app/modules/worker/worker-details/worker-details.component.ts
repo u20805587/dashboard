@@ -1,10 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup} from "@angular/forms";
-import {ProjectApiService} from "../../project/project-api.service";
-import {Project} from "../../project/project.model";
-import {SiteWorker} from "../worker.model";
+import {Worker} from "../worker.model";
 import {Router} from "@angular/router";
-import {WorkerService} from "../worker.service";
+import {WorkerApiService} from "../worker-api.service";
 
 export interface Item {
   value: string;
@@ -31,10 +29,9 @@ export class WorkerDetailsComponent implements OnInit {
     {value: 'Basic Worker'}
   ];
 
-  projects: Project[];
-
-  constructor(private _formBuilder: FormBuilder, private projectService: ProjectApiService,
-              private workerService: WorkerService, private router: Router) {
+  constructor(private _formBuilder: FormBuilder,
+              private workerService: WorkerApiService,
+              private router: Router) {
   }
 
   ngOnInit() {
@@ -42,9 +39,10 @@ export class WorkerDetailsComponent implements OnInit {
       formArray: this._formBuilder.array([
         this._formBuilder.group({
           name: '',
+          middleName: '',
           surname: '',
           idNumber: '',
-          dateOfBirth: ''
+          birthDate: ''
         }),
         this._formBuilder.group({
           contactNumber: '',
@@ -58,23 +56,26 @@ export class WorkerDetailsComponent implements OnInit {
         })
       ])
     });
-
-    this.projectService.getProjects().subscribe(data => {
-      this.projects = data;
-    })
   }
 
   onSubmit() {
     let formArray = this.formGroup.get('formArray').value;
-    let worker: SiteWorker = {
+    let worker: Worker = {
       name: formArray[0].name,
+      middleName: '',
       surname: formArray[0].surname,
       idNumber: formArray[0].idNumber,
-      dateOfBirth: formArray[0].dateOfBirth,
+      birthDate: formArray[0].birthDate,
       addressLine1: formArray[1].addressLine1,
       addressLine2: formArray[1].addressLine2,
       addressLine3: formArray[1].addressLine3,
-      postalCode: formArray[1].postalCode
+      postalCode: formArray[1].postalCode,
+      hourlyRate: formArray[2].hourlyRate,
+      nationality: '',
+      siteWorkerCategory: '',
+      username: '',
+      password: '',
+      stateCode: ''
     }
     this.workerService.addWorker(worker).subscribe((data) => {
       this.router.navigate(['workers']);
