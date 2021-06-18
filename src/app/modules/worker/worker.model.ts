@@ -1,15 +1,22 @@
 export class Worker {
 
-  name: string;
-  surname: string;
-  idNumber: string;
-  dateOfBirth: Date
+  workerId?: number;
+  name?: string;
+  middleName?: string;
+  surname?: string;
+  idNumber?: string;
+  birthDate?: Date
   gender?: string;
-  assignedProject?: string;
+  hourlyRate: number;
   contactNumber?: string;
   addressLine1?: string;
   addressLine2?: string;
   addressLine3?: string;
   postalCode?: string;
+  nationality: string;
+  siteWorkerCategory: string;
+  username: string;
+  password: string;
+  stateCode: string;
 
 }

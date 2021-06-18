@@ -13,7 +13,7 @@ export class WorkerComponent implements OnInit {
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
-  public displayedColumns = ['name', 'surname', 'idNumber', 'dateOfBirth', 'gender', 'assignedProject', 'view'];
+  public displayedColumns = ['name', 'middleName', 'surname', 'idNumber', 'birthDate', 'gender', 'view'];
   public dataSource = new MatTableDataSource<Worker>();
 
   constructor(private router: Router, private workerService: WorkerApiService) { }

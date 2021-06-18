@@ -13,7 +13,7 @@ export class WorkerRoleComponent implements OnInit, AfterViewInit {
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
-  public displayedColumns = ['workerId','rolenId','update', 'delete'];
+  public displayedColumns = ['workerId','roleId','update', 'delete'];
   public dataSource = new MatTableDataSource<WorkerRole>();
 
   constructor(private router: Router, private workerRoleService: WorkerRoleApiService) {
