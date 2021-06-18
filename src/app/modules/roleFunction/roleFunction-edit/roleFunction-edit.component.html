@@ -1,0 +1,35 @@
+<h1>Edit Role Function</h1>
+
+<form class="form-field" [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+  <mat-horizontal-stepper formArrayName="formArray">
+    <mat-step formGroupName="0" [stepControl]="formArray?.get([0])" label="Role Function details">
+      <div class="mat-step-container">
+        <mat-form-field>
+          <mat-label>Role</mat-label>
+          <mat-select matInput formControlName="roleId" placeholder="roleId">
+            <mat-option *ngFor="let role of roles" [value]="role.roleId">
+              {{role.roleId}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Function</mat-label>
+          <mat-select matInput formControlName="functionId" placeholder="functionId">
+            <mat-option *ngFor="let function of functions" [value]="function.functionId">
+              {{function.functionId}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+    </mat-step>
+
+    <mat-step>
+      <ng-template matStepLabel>Done</ng-template>
+      <p>Click on submit button if you wish to finalize the capturing of role function details.</p>
+      <div>
+        <button mat-button matStepperPrevious type="button">Back</button>
+        <button mat-button>Submit</button>
+      </div>
+    </mat-step>
+  </mat-horizontal-stepper>
+</form>

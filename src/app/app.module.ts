@@ -29,6 +29,15 @@ import {TaskEditComponent } from './modules/task/task-edit/task-edit.component';
 import {SubTaskComponent } from './modules/subtask/subtask.component';
 import {SubTaskDetailsComponent } from './modules/subtask/subtask-details/subtask-details.component';
 import {ProjectEditComponent} from './modules/project/project-edit/project-edit.component';
+import {RoleComponent } from './modules/role/role.component';
+import {RoleDetailsComponent } from './modules/role/role-details/role-details.component';
+import {RoleEditComponent } from './modules/role/role-edit/role-edit.component';
+import {FunctionComponent} from "./modules/function/function.component";
+import {FunctionDetailsComponent} from "./modules/function/function-details/function-details.component";
+import {FunctionEditComponent} from "./modules/function/function-edit/function-edit.component";
+import {RoleFunctionComponent} from "./modules/roleFunction/roleFunction.component";
+import {RoleFunctionDetailsComponent} from "./modules/roleFunction/roleFunction-details/roleFunction-details.component";
+import {RoleFunctionEditComponent} from "./modules/roleFunction/roleFunction-edit/roleFunction-edit.component";
 
 @NgModule({
   declarations: [
@@ -45,6 +54,15 @@ import {ProjectEditComponent} from './modules/project/project-edit/project-edit.
     SubTaskComponent,
     SubTaskDetailsComponent,
     ProjectEditComponent,
+    RoleComponent,
+    RoleDetailsComponent,
+    RoleEditComponent,
+    FunctionComponent,
+    FunctionDetailsComponent,
+    FunctionEditComponent,
+    RoleFunctionComponent,
+    RoleFunctionDetailsComponent,
+    RoleFunctionEditComponent,
   ],
   imports: [
     BrowserModule,
