@@ -38,6 +38,12 @@ import {FunctionEditComponent} from "./modules/function/function-edit/function-e
 import {RoleFunctionComponent} from "./modules/roleFunction/roleFunction.component";
 import {RoleFunctionDetailsComponent} from "./modules/roleFunction/roleFunction-details/roleFunction-details.component";
 import {RoleFunctionEditComponent} from "./modules/roleFunction/roleFunction-edit/roleFunction-edit.component";
+import {WorkerFunctionComponent} from "./modules/workerFunction/workerFunction.component";
+import {WorkerFunctionDetailsComponent} from "./modules/workerFunction/workerFunction-details/workerFunction-details.component";
+import {WorkerFunctionEditComponent} from "./modules/workerFunction/workerFunction-edit/workerFunction-edit.component";
+import {WorkerRoleComponent} from "./modules/workerRole/workerRole.component";
+import {WorkerRoleDetailsComponent} from "./modules/workerRole/workerRole-details/workerRole-details.component";
+import {WorkerRoleEditComponent} from "./modules/workerRole/workerRole-edit/workerRole-edit.component";
 
 @NgModule({
   declarations: [
@@ -63,6 +69,12 @@ import {RoleFunctionEditComponent} from "./modules/roleFunction/roleFunction-edi
     RoleFunctionComponent,
     RoleFunctionDetailsComponent,
     RoleFunctionEditComponent,
+    WorkerFunctionComponent,
+    WorkerFunctionDetailsComponent,
+    WorkerFunctionEditComponent,
+    WorkerRoleComponent,
+    WorkerRoleDetailsComponent,
+    WorkerRoleEditComponent,
   ],
   imports: [
     BrowserModule,

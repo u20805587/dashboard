@@ -1,4 +1,4 @@
-export class SiteWorker {
+export class Worker {
 
   name: string;
   surname: string;

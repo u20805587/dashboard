@@ -2,9 +2,9 @@ import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup} from "@angular/forms";
 import {ProjectApiService} from "../../project/project-api.service";
 import {Project} from "../../project/project.model";
-import {SiteWorker} from "../worker.model";
+import {Worker} from "../worker.model";
 import {Router} from "@angular/router";
-import {WorkerService} from "../worker.service";
+import {WorkerApiService} from "../worker-api.service";
 
 export interface Item {
   value: string;
@@ -34,7 +34,7 @@ export class WorkerDetailsComponent implements OnInit {
   projects: Project[];
 
   constructor(private _formBuilder: FormBuilder, private projectService: ProjectApiService,
-              private workerService: WorkerService, private router: Router) {
+              private workerService: WorkerApiService, private router: Router) {
   }
 
   ngOnInit() {
@@ -66,7 +66,7 @@ export class WorkerDetailsComponent implements OnInit {
 
   onSubmit() {
     let formArray = this.formGroup.get('formArray').value;
-    let worker: SiteWorker = {
+    let worker: Worker = {
       name: formArray[0].name,
       surname: formArray[0].surname,
       idNumber: formArray[0].idNumber,

@@ -23,6 +23,13 @@ import {FunctionEditComponent} from "./modules/function/function-edit/function-e
 import {RoleFunctionComponent} from "./modules/roleFunction/roleFunction.component";
 import {RoleFunctionDetailsComponent} from "./modules/roleFunction/roleFunction-details/roleFunction-details.component";
 import {RoleFunctionEditComponent} from "./modules/roleFunction/roleFunction-edit/roleFunction-edit.component";
+import {WorkerFunctionComponent} from "./modules/workerFunction/workerFunction.component";
+import {WorkerFunctionDetailsComponent} from "./modules/workerFunction/workerFunction-details/workerFunction-details.component";
+import {WorkerFunctionEditComponent} from "./modules/workerFunction/workerFunction-edit/workerFunction-edit.component";
+import {WorkerRoleComponent} from "./modules/workerRole/workerRole.component";
+import {WorkerRoleDetailsComponent} from "./modules/workerRole/workerRole-details/workerRole-details.component";
+import {WorkerRoleEditComponent} from "./modules/workerRole/workerRole-edit/workerRole-edit.component";
+
 
 const routes: Routes = [{
   path: '',
@@ -119,6 +126,30 @@ const routes: Routes = [{
     {
       path: 'rolefunctions/edit/:roleId/:functionId',
       component: RoleFunctionEditComponent
+    },
+    {
+      path: 'workerfunctions',
+      component: WorkerFunctionComponent
+    },
+    {
+      path: 'workerfunctions/create',
+      component: WorkerFunctionDetailsComponent
+    },
+    {
+      path: 'workerfunctions/edit/:workerId/:functionId',
+      component: WorkerFunctionEditComponent
+    },
+   {
+      path: 'workerroles',
+      component: WorkerRoleComponent
+    },
+    {
+      path: 'workerroles/create',
+      component: WorkerRoleDetailsComponent
+    },
+    {
+      path: 'workerroles/edit/:workerId/:roleId',
+      component: WorkerRoleEditComponent
     },
   ]
 }];
