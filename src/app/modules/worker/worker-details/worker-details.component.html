@@ -8,6 +8,12 @@
           <mat-label>Name</mat-label>
           <input matInput formControlName="name" placeholder="name">
         </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Middle Name</mat-label>
+          <input matInput formControlName="middleName" placeholder="middleName">
+        </mat-form-field>
+
         <mat-form-field>
           <mat-label>Surname</mat-label>
           <input matInput formControlName="surname" placeholder="surname">
@@ -18,13 +24,14 @@
         </mat-form-field>
         <mat-form-field>
           <mat-label>Date of Birth</mat-label>
-          <input matInput formControlName="birthDate" [matDatepicker]="birthDate" readonly>
-          <mat-datepicker-toggle matSuffix [for]="dateOfBirth"></mat-datepicker-toggle>
-          <mat-datepicker #dateOfBirth></mat-datepicker>
+          <input matInput formControlName="birthDate" [matDatepicker]="birthDate">
+          <mat-datepicker-toggle matSuffix [for]="birthDate"></mat-datepicker-toggle>
+          <mat-datepicker #birthDate></mat-datepicker>
         </mat-form-field>
+
         <mat-form-field>
           <mat-label>Gender</mat-label>
-          <mat-select>
+          <mat-select matInput formControlName="gender" placeholder="gender">
             <mat-option *ngFor="let gender of genders" [value]="gender.value">
               {{gender.value}}
             </mat-option>
@@ -71,6 +78,26 @@
           <mat-label>Hourly Rate</mat-label>
           <input matInput formControlName="hourlyRate" placeholder="hourlyRate">
         </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Username</mat-label>
+          <input matInput formControlName="username" placeholder="username">
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Password</mat-label>
+          <input type = "password" matInput formControlName="password" placeholder="password">
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>User Status</mat-label>
+          <mat-select matInput formControlName="userStatus" placeholder="userStatus">
+            <mat-option *ngFor="let status of statuses" [value]="status.value">
+              {{status.value}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
         <div>
           <button mat-button matStepperPrevious type="button">Back</button>
           <button mat-button matStepperNext type="button">Next</button>
