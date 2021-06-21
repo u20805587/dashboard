@@ -1,0 +1,82 @@
+<h1>Edit Project Task</h1>
+
+<form *ngIf="formGroup" class="form-field" [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+  <mat-horizontal-stepper formArrayName="formArray">
+    <mat-step formGroupName="0" [stepControl]="formArray?.get([0])" label="Edit Project Task">
+      <div class="mat-step-container">
+        <mat-form-field>
+          <mat-label>Task</mat-label>
+          <mat-select matInput formControlName="subtaskId" placeholder="subtaskId">
+            <mat-option *ngFor="let subtask of subtasks" [value]="subtask.id">
+              {{subtask.subTaskName}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>project</mat-label>
+          <mat-select matInput formControlName="projectId" placeholder="projectId">
+            <mat-option *ngFor="let project of projects" [value]="project.Id">
+              {{project.name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Status</mat-label>
+          <mat-select matInput formControlName="status" placeholder="status">
+            <mat-option *ngFor="let status of statuses" [value]="status.value">
+              {{status.value}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Measuring Unit</mat-label>
+          <mat-select matInput formControlName="unit" placeholder="unit">
+            <mat-option *ngFor="let unit of units" [value]="unit.value">
+              {{unit.value}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <div>
+          <button mat-button matStepperPrevious type="button">Back</button>
+          <button mat-button matStepperNext type="button">Next</button>
+        </div>
+      </div>
+    </mat-step>
+
+    <mat-step formGroupName="1" [stepControl]="formArray?.get([1])" label="Project Estimates">
+      <div class="mat-step-container">
+        <mat-form-field>
+          <mat-label>Length</mat-label>
+          <input matInput formControlName="length" type="number" placeholder="length">
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Width</mat-label>
+          <input matInput formControlName="width" type="number" placeholder="width">
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Height</mat-label>
+          <input matInput formControlName="height" type="number" placeholder="height">
+        </mat-form-field>
+
+        <div>
+          <button mat-button matStepperPrevious type="button">Back</button>
+          <button mat-button matStepperNext type="button">Next</button>
+        </div>
+      </div>
+    </mat-step>
+
+    <mat-step>
+      <ng-template>Done</ng-template>
+      <p>Click on submit button if you wish to finalize the capturing of project task details.</p>
+      <div>
+        <button mat-button matStepperPrevious type="button">Back</button>
+        <button mat-button>Submit</button>
+      </div>
+    </mat-step>
+  </mat-horizontal-stepper>
+</form>

@@ -37,8 +37,8 @@ export class AuthService {
       localStorage.removeItem('currentUser');
    }
 
-   getAccess(functionId: string): Observable<boolean>{
-     // return this.http.getAccess(`${this.baseUrl}/${localStorage.userName}/${functionId}`);
-   }
+//    getAccess(functionId: string): Observable<Any>{
+//       return this.http.get<Any>(`${this.baseUrl}/${localStorage.userName}/${functionId}`);
+//    }
 
 }

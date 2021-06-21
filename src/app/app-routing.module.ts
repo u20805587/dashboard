@@ -32,15 +32,19 @@ import {WorkerRoleDetailsComponent} from "./modules/workerRole/workerRole-detail
 import {WorkerRoleEditComponent} from "./modules/workerRole/workerRole-edit/workerRole-edit.component";
 import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
+import {WorkerProjectComponent} from "./modules/workerProject/workerProject.component";
+import {WorkerProjectDetailsComponent} from "./modules/workerProject/workerProject-details/workerProject-details.component";
+import {WorkerProjectEditComponent} from "./modules/workerProject/workerProject-edit/workerProject-edit.component";
+import {ProjectTaskComponent} from "./modules/projectTask/projectTask.component";
+import {ProjectTaskLogComponent} from "./modules/projectTaskLog/projectTaskLog.component";
+import {ProjectTaskDetailsComponent} from "./modules/projectTask/projectTask-details/projectTask-details.component";
+import {ProjectTaskEditComponent} from "./modules/projectTask/projectTask-edit/projectTask-edit.component";
 import { AppGuard } from './app.guard';
 
 const routes: Routes = [
 
    { path: 'login', component: LoginComponent },
    { path: 'logout', component: LogoutComponent },
- //  { path: 'projects', component: ProjectComponent, canActivate: [AppGuard]},
-  // { path: 'default', component: DefaultComponent, canActivate: [AppGuard]},
-   //{ path: '', redirectTo: 'default', pathMatch: 'full' },
 {
   path: '',
   component: DefaultComponent,
@@ -164,6 +168,34 @@ const routes: Routes = [
     {
       path: 'workers/edit/:workerId',
       component: WorkerEditComponent, canActivate: [AppGuard]
+    },
+   {
+      path: 'workerprojects',
+      component: WorkerProjectComponent, canActivate: [AppGuard]
+    },
+    {
+      path: 'workerprojects/create',
+      component: WorkerProjectDetailsComponent, canActivate: [AppGuard]
+    },
+    {
+      path: 'workerprojects/edit/:workerId/:projectId',
+      component: WorkerProjectEditComponent, canActivate: [AppGuard]
+    },
+   {
+      path: 'projecttasks',
+      component: ProjectTaskComponent, canActivate: [AppGuard]
+    },
+    {
+      path: 'projecttasks/create',
+      component: ProjectTaskDetailsComponent, canActivate: [AppGuard]
+    },
+    {
+      path: 'projecttasks/edit/:subtaskId/:projectId',
+      component: ProjectTaskEditComponent, canActivate: [AppGuard]
+    },
+   {
+      path: 'projecttasklogs',
+      component: ProjectTaskLogComponent, canActivate: [AppGuard]
     },
   ]
 }

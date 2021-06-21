@@ -1,0 +1,42 @@
+<h1>New Worker project</h1>
+
+<form class="form-field" [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+  <mat-horizontal-stepper formArrayName="formArray">
+    <mat-step formGroupName="0" [stepControl]="formArray?.get([0])" label="New Worker project">
+      <div class="mat-step-container">
+        <mat-form-field>
+          <mat-label>Worker</mat-label>
+          <mat-select matInput formControlName="workerId" placeholder="workerId">
+            <mat-option *ngFor="let worker of workers" [value]="worker.workerId">
+              {{worker.name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Project</mat-label>
+          <mat-select matInput formControlName="projectId" placeholder="projectId">
+            <mat-option *ngFor="let project of projects" [value]="project.id">
+              {{project.name}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Hourly Rate</mat-label>
+          <input matInput formControlName="hourlyRate" placeholder="hourlyRate">
+        </mat-form-field>
+
+      </div>
+    </mat-step>
+
+     <mat-step>
+      <ng-template>Done</ng-template>
+      <p>Click on submit button if you wish to finalize the capturing of project details.</p>
+      <div>
+        <button mat-button matStepperPrevious type="button">Back</button>
+        <button mat-button>Submit</button>
+      </div>
+    </mat-step>
+  </mat-horizontal-stepper>
+</form>

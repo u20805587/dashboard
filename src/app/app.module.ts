@@ -46,8 +46,15 @@ import {WorkerFunctionEditComponent} from "./modules/workerFunction/workerFuncti
 import {WorkerRoleComponent} from "./modules/workerRole/workerRole.component";
 import {WorkerRoleDetailsComponent} from "./modules/workerRole/workerRole-details/workerRole-details.component";
 import {WorkerRoleEditComponent} from "./modules/workerRole/workerRole-edit/workerRole-edit.component";
+import {WorkerProjectComponent} from "./modules/workerProject/workerProject.component";
+import {WorkerProjectDetailsComponent} from "./modules/workerProject/workerProject-details/workerProject-details.component";
+import {WorkerProjectEditComponent} from "./modules/workerProject/workerProject-edit/workerProject-edit.component";
 import {LoginComponent} from './login/login.component';
 import {LogoutComponent} from './logout/logout.component';
+import {ProjectTaskComponent} from "./modules/projectTask/projectTask.component";
+import {ProjectTaskLogComponent} from "./modules/projectTaskLog/projectTaskLog.component";
+import {ProjectTaskDetailsComponent} from "./modules/projectTask/projectTask-details/projectTask-details.component";
+import {ProjectTaskEditComponent} from "./modules/projectTask/projectTask-edit/projectTask-edit.component";
 imports: [
    ReactiveFormsModule
 ]
@@ -83,6 +90,13 @@ imports: [
     WorkerRoleComponent,
     WorkerRoleDetailsComponent,
     WorkerRoleEditComponent,
+    WorkerProjectComponent,
+    WorkerProjectDetailsComponent,
+    WorkerProjectEditComponent,
+    ProjectTaskComponent,
+    ProjectTaskDetailsComponent,
+    ProjectTaskEditComponent,
+    ProjectTaskLogComponent,
     LoginComponent,
     LogoutComponent
   ],
