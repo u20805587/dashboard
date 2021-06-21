@@ -1,6 +1,6 @@
 <h1>Edit Project</h1>
 
-<form class="form-field" [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+<form *ngIf="formGroup" class="form-field" [formGroup]="formGroup" (ngSubmit)="onSubmit()">
   <mat-horizontal-stepper formArrayName="formArray">
     <mat-step formGroupName="0" [stepControl]="formArray?.get([0])" label="Project details">
       <div class="mat-step-container">
@@ -28,7 +28,7 @@
       <div class="mat-step-container">
         <mat-form-field>
           <mat-label>Estimated Costs</mat-label>
-          <input matInput formControlName="estimatedCost" type="number" placeholder="estimated costs">
+          <input matInput formControlName="estimatedCost" type="number" placeholder="estimatedCost">
         </mat-form-field>
         <mat-form-field >
           <mat-label>Estimated start date</mat-label>

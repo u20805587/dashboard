@@ -46,11 +46,20 @@
       <td mat-cell *matCellDef="let element"> {{element.gender}} </td>
     </ng-container>
 
-    <ng-container matColumnDef="view">
-      <th mat-header-cell *matHeaderCellDef> Details</th>
+    <ng-container matColumnDef="update">
+      <th mat-header-cell *matHeaderCellDef>Details</th>
       <td mat-cell *matCellDef="let element">
-        <button mat-icon-button color="primary" (click)="viewDetails(element.id)">
+        <button mat-icon-button color="primary" (click)="redirectToDetails(element.workerId)">
           <mat-icon class="mat-18">reorder</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="delete">
+      <th mat-header-cell *matHeaderCellDef>Delete</th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-icon-button color="warn" (click)="redirectToDelete(element.workerId)">
+          <mat-icon class="mat-18">delete</mat-icon>
         </button>
       </td>
     </ng-container>

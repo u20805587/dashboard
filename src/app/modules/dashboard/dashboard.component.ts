@@ -42,6 +42,8 @@ export class DashboardComponent implements OnInit {
   cards = [];
   pieChart = [];
 
+    sideBarOpen = true;
+
   displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
   dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
 
@@ -55,6 +57,11 @@ export class DashboardComponent implements OnInit {
     this.pieChart = this.dashboardService.pieChart();
 
     this.dataSource.paginator = this.paginator;
+
+  }
+
+  sideBarToggler() {
+    this.sideBarOpen = !this.sideBarOpen;
   }
 
 }

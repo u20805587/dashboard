@@ -9,6 +9,10 @@ import {Function} from "../../function/function.model";
 import {Router} from "@angular/router";
 import {ActivatedRoute} from "@angular/router";
 
+  export interface Item {
+    value: string;
+  }
+
 @Component({
   selector: 'app-details',
   templateUrl: './workerFunction-edit.component.html',
@@ -17,6 +21,11 @@ import {ActivatedRoute} from "@angular/router";
 export class WorkerFunctionEditComponent implements OnInit {
   formGroup: FormGroup;
   formArray: any;
+
+  yesNo: Item[] = [
+    {value: 'Y'},
+    {value: 'N'}
+  ];
 
   workers: Worker[];
   functions: Function[];
@@ -46,13 +55,17 @@ ngOnInit() {
 
      this.functionService.getFunctions().subscribe(data => {
        this.functions = data;
-      });
+      }),
 
       this.formGroup = this._formBuilder.group({
         formArray: this._formBuilder.array([
           this._formBuilder.group({
-            functionId: this.workerFunction.functionId,
-            workerId: this.workerFunction.workerId,
+            workerId: this.workerId,
+            functionId: this.functionId,
+            insert: this.workerFunction.insert,
+            modify: this.workerFunction.modify,
+            delete: this.workerFunction.delete,
+            view: this.workerFunction.view
           })
         ])
       });
@@ -64,8 +77,12 @@ ngOnInit() {
   onSubmit() {
     let formArray = this.formGroup.get('formArray').value;
     let workerFunctions: WorkerFunction = {
+      workerId: formArray[0].workerId,
       functionId: formArray[0].functionId,
-      workerId: formArray[0].workerId
+      insert: formArray[0].insert,
+      modify: formArray[0].modify,
+      delete: formArray[0].delete,
+      view: formArray[0].view
     }
     this.workerFunctionService.addWorkerFunction(workerFunctions).subscribe((data) => {
       this.router.navigate(['workerfunctions']);

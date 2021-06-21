@@ -8,6 +8,7 @@ import {WorkerComponent} from "./modules/worker/worker.component";
 import {ProjectDetailsComponent} from "./modules/project/project-details/project-details.component";
 import {UserDetailsComponent} from "./modules/user/user-details/user-details.component";
 import {WorkerDetailsComponent} from "./modules/worker/worker-details/worker-details.component";
+import {WorkerEditComponent} from "./modules/worker/worker-edit/worker-edit.component";
 import {TaskComponent} from "./modules/task/task.component";
 import {TaskDetailsComponent} from "./modules/task/task-details/task-details.component";
 import {TaskEditComponent} from "./modules/task/task-edit/task-edit.component";
@@ -29,130 +30,144 @@ import {WorkerFunctionEditComponent} from "./modules/workerFunction/workerFuncti
 import {WorkerRoleComponent} from "./modules/workerRole/workerRole.component";
 import {WorkerRoleDetailsComponent} from "./modules/workerRole/workerRole-details/workerRole-details.component";
 import {WorkerRoleEditComponent} from "./modules/workerRole/workerRole-edit/workerRole-edit.component";
+import { LoginComponent } from './login/login.component';
+import { LogoutComponent } from './logout/logout.component';
+import { AppGuard } from './app.guard';
 
+const routes: Routes = [
 
-const routes: Routes = [{
+   { path: 'login', component: LoginComponent },
+   { path: 'logout', component: LogoutComponent },
+ //  { path: 'projects', component: ProjectComponent, canActivate: [AppGuard]},
+  // { path: 'default', component: DefaultComponent, canActivate: [AppGuard]},
+   //{ path: '', redirectTo: 'default', pathMatch: 'full' },
+{
   path: '',
   component: DefaultComponent,
   children: [
     {
       path: '',
-      component: DashboardComponent
+      component: DashboardComponent, canActivate: [AppGuard]
     },
     {
       path: 'projects',
-      component: ProjectComponent
+      component: ProjectComponent, canActivate: [AppGuard]
     },
     {
       path: 'workers',
-      component: WorkerComponent
+      component: WorkerComponent, canActivate: [AppGuard]
     },
     {
-      path: 'workers/setup',
-      component: WorkerDetailsComponent
+      path: 'workers/create',
+      component: WorkerDetailsComponent, canActivate: [AppGuard]
     },
     {
       path: 'users',
-      component: UserComponent
+      component: UserComponent, canActivate: [AppGuard]
     },
     {
       path: 'users/setup',
-      component: UserDetailsComponent
+      component: UserDetailsComponent, canActivate: [AppGuard]
     },
     {
       path: 'projects/create',
-      component: ProjectDetailsComponent
+      component: ProjectDetailsComponent, canActivate: [AppGuard]
     },
     {
       path: 'projects/edit/:id',
-      component: ProjectEditComponent
+      component: ProjectEditComponent, canActivate: [AppGuard]
     },
     {
       path: 'tasks/edit/:id',
-      component: TaskEditComponent
+      component: TaskEditComponent, canActivate: [AppGuard]
     },
     {
       path: 'tasks',
-      component: TaskComponent
+      component: TaskComponent, canActivate: [AppGuard]
     },
     {
       path: 'projects/create',
-      component: ProjectDetailsComponent
+      component: ProjectDetailsComponent, canActivate: [AppGuard]
     },
     {
       path: 'tasks/create',
-      component: TaskDetailsComponent
+      component: TaskDetailsComponent, canActivate: [AppGuard]
     },
     {
       path: 'roles',
-      component: RoleComponent
+      component: RoleComponent, canActivate: [AppGuard]
     },
     {
       path: 'roles/create',
-      component: RoleDetailsComponent
+      component: RoleDetailsComponent, canActivate: [AppGuard]
     },
     {
       path: 'roles/edit/:roleId',
-      component: RoleEditComponent
+      component: RoleEditComponent, canActivate: [AppGuard]
     },
     {
       path: 'subtasks',
-      component: SubTaskComponent
+      component: SubTaskComponent, canActivate: [AppGuard]
     },
     {
       path: 'subtasks/create',
-      component: SubTaskDetailsComponent
+      component: SubTaskDetailsComponent, canActivate: [AppGuard]
     },
     {
       path: 'functions',
-      component: FunctionComponent
+      component: FunctionComponent, canActivate: [AppGuard]
     },
     {
       path: 'functions/create',
-      component: FunctionDetailsComponent
+      component: FunctionDetailsComponent, canActivate: [AppGuard]
     },
     {
       path: 'functions/edit/:functionId',
-      component: FunctionEditComponent
+      component: FunctionEditComponent, canActivate: [AppGuard]
     },
     {
       path: 'rolefunctions',
-      component: RoleFunctionComponent
+      component: RoleFunctionComponent, canActivate: [AppGuard]
     },
     {
       path: 'rolefunctions/create',
-      component: RoleFunctionDetailsComponent
+      component: RoleFunctionDetailsComponent, canActivate: [AppGuard]
     },
     {
       path: 'rolefunctions/edit/:roleId/:functionId',
-      component: RoleFunctionEditComponent
+      component: RoleFunctionEditComponent, canActivate: [AppGuard]
     },
     {
       path: 'workerfunctions',
-      component: WorkerFunctionComponent
+      component: WorkerFunctionComponent, canActivate: [AppGuard]
     },
     {
       path: 'workerfunctions/create',
-      component: WorkerFunctionDetailsComponent
+      component: WorkerFunctionDetailsComponent, canActivate: [AppGuard]
     },
     {
       path: 'workerfunctions/edit/:workerId/:functionId',
-      component: WorkerFunctionEditComponent
+      component: WorkerFunctionEditComponent, canActivate: [AppGuard]
     },
    {
       path: 'workerroles',
-      component: WorkerRoleComponent
+      component: WorkerRoleComponent, canActivate: [AppGuard]
     },
     {
       path: 'workerroles/create',
-      component: WorkerRoleDetailsComponent
+      component: WorkerRoleDetailsComponent, canActivate: [AppGuard]
     },
     {
       path: 'workerroles/edit/:workerId/:roleId',
-      component: WorkerRoleEditComponent
+      component: WorkerRoleEditComponent, canActivate: [AppGuard]
+    },
+    {
+      path: 'workers/edit/:workerId',
+      component: WorkerEditComponent, canActivate: [AppGuard]
     },
   ]
-}];
+}
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

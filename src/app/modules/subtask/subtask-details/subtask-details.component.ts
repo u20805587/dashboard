@@ -31,11 +31,13 @@ export class SubTaskDetailsComponent implements OnInit {
           id: '',
           siteTask: '',
           subTaskName: '',
-          subTaskDescription: '',
-          meterCost: '',
-          squareMeterCost: '',
-          cubicMeterCost: ''
-        })
+          subTaskDescription: ''
+        }),
+         this._formBuilder.group({
+            meterCost: '',
+            squareMeterCost: '',
+            cubicMeterCost: ''
+          })
       ])
     }),
 
@@ -52,7 +54,10 @@ export class SubTaskDetailsComponent implements OnInit {
     let subtask: SubTask = {
       subTaskName: formArray[0].subTaskName,
       subTaskDescription: formArray[0].subTaskDescription,
-      siteTask: formArray[0].task
+      siteTask: formArray[0].siteTask,
+      meterCost: formArray[1].meterCost,
+      squareMeterCost: formArray[1].squareMeterCost,
+      cubicMeterCost: formArray[1].cubicMeterCost
     }
 
     this.subtaskService.addSubTask(subtask).subscribe((data) => {

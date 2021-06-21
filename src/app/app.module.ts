@@ -1,6 +1,7 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 
+
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
@@ -21,7 +22,8 @@ import {ProjectDetailsComponent} from './modules/project/project-details/project
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {WorkerComponent} from './modules/worker/worker.component';
 import {UserDetailsComponent} from './modules/user/user-details/user-details.component';
-import { WorkerDetailsComponent } from './modules/worker/worker-details/worker-details.component';
+import {WorkerDetailsComponent } from './modules/worker/worker-details/worker-details.component';
+import {WorkerEditComponent } from './modules/worker/worker-edit/worker-edit.component';
 import {HttpClientModule} from "@angular/common/http";
 import {TaskComponent } from './modules/task/task.component';
 import {TaskDetailsComponent } from './modules/task/task-details/task-details.component';
@@ -44,6 +46,11 @@ import {WorkerFunctionEditComponent} from "./modules/workerFunction/workerFuncti
 import {WorkerRoleComponent} from "./modules/workerRole/workerRole.component";
 import {WorkerRoleDetailsComponent} from "./modules/workerRole/workerRole-details/workerRole-details.component";
 import {WorkerRoleEditComponent} from "./modules/workerRole/workerRole-edit/workerRole-edit.component";
+import {LoginComponent} from './login/login.component';
+import {LogoutComponent} from './logout/logout.component';
+imports: [
+   ReactiveFormsModule
+]
 
 @NgModule({
   declarations: [
@@ -54,6 +61,7 @@ import {WorkerRoleEditComponent} from "./modules/workerRole/workerRole-edit/work
     WorkerComponent,
     UserDetailsComponent,
     WorkerDetailsComponent,
+    WorkerEditComponent,
     TaskComponent,
     TaskDetailsComponent,
     TaskEditComponent,
@@ -75,6 +83,8 @@ import {WorkerRoleEditComponent} from "./modules/workerRole/workerRole-edit/work
     WorkerRoleComponent,
     WorkerRoleDetailsComponent,
     WorkerRoleEditComponent,
+    LoginComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,

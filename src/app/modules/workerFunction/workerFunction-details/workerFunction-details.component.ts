@@ -8,6 +8,10 @@ import {FunctionApiService} from "../../function/function-api.service";
 import {Function} from "../../function/function.model";
 import {Router} from "@angular/router";
 
+export interface Item {
+  value: string;
+}
+
 @Component({
   selector: 'app-details',
   templateUrl: './workerFunction-details.component.html',
@@ -17,6 +21,12 @@ export class WorkerFunctionDetailsComponent implements OnInit {
 
   formGroup: FormGroup;
   formArray: any;
+
+  yesNo: Item[] = [
+    {value: 'Y'},
+    {value: 'N'}
+  ];
+
   workers: Worker[];
   functions: Function[];
 
@@ -32,7 +42,11 @@ export class WorkerFunctionDetailsComponent implements OnInit {
       formArray: this._formBuilder.array([
         this._formBuilder.group({
           functionId: '',
-          workerId: ''
+          workerId: '',
+          insert: '',
+          modify: '',
+          delete: '',
+          view: ''
         })
       ])
     }),
@@ -50,7 +64,11 @@ export class WorkerFunctionDetailsComponent implements OnInit {
     let formArray = this.formGroup.get('formArray').value;
     let workerFunctions: WorkerFunction = {
     workerId: formArray[0].workerId,
-    functionId: formArray[0].functionId
+    functionId: formArray[0].functionId,
+    insert: formArray[0].insert,
+    modify: formArray[0].modify,
+    delete: formArray[0].delete,
+    view: formArray[0].view
     }
 
     this.workerFunctionService.addWorkerFunction(workerFunctions).subscribe((data) => {

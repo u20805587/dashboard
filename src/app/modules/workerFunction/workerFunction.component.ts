@@ -13,7 +13,7 @@ export class WorkerFunctionComponent implements OnInit, AfterViewInit {
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
-  public displayedColumns = ['workerId','functionId','update', 'delete'];
+  public displayedColumns = ['workerId','functionId','insert','modify','delete','view','update', 'remove'];
   public dataSource = new MatTableDataSource<WorkerFunction>();
 
   constructor(private router: Router, private workerFunctionService: WorkerFunctionApiService) {
@@ -30,6 +30,7 @@ export class WorkerFunctionComponent implements OnInit, AfterViewInit {
   }
 
   redirectToDetails(workerId, functionId) {
+
      this.router.navigate(['workerfunctions/edit', workerId, functionId]);
   }
 

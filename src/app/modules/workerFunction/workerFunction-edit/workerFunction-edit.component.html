@@ -1,17 +1,18 @@
 <h1>Edit Worker Function</h1>
 
-<form class="form-field" [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+<form *ngIf="formGroup" class="form-field" [formGroup]="formGroup" (ngSubmit)="onSubmit()">
   <mat-horizontal-stepper formArrayName="formArray">
-    <mat-step formGroupName="0" [stepControl]="formArray?.get([0])" label="Worker Function details">
+    <mat-step formGroupName="0" [stepControl]="formArray?.get([0])" label="New Worker Function">
       <div class="mat-step-container">
         <mat-form-field>
           <mat-label>Worker</mat-label>
           <mat-select matInput formControlName="workerId" placeholder="workerId">
             <mat-option *ngFor="let worker of workers" [value]="worker.workerId">
-              {{worker.workerId}}
+              {{worker.name}}
             </mat-option>
           </mat-select>
         </mat-form-field>
+
         <mat-form-field>
           <mat-label>Function</mat-label>
           <mat-select matInput formControlName="functionId" placeholder="functionId">
@@ -20,12 +21,49 @@
             </mat-option>
           </mat-select>
         </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Create</mat-label>
+          <mat-select matInput formControlName="insert" placeholder="insert">
+            <mat-option *ngFor="let yesNo of yesNo" [value]="yesNo.value">
+              {{yesNo.value}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Edit</mat-label>
+          <mat-select matInput formControlName="modify" placeholder="modify">
+            <mat-option *ngFor="let yesNo of yesNo" [value]="yesNo.value">
+              {{yesNo.value}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>Delete</mat-label>
+          <mat-select matInput formControlName="delete" placeholder="delete">
+            <mat-option *ngFor="let yesNo of yesNo" [value]="yesNo.value">
+              {{yesNo.value}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+          <mat-label>View</mat-label>
+          <mat-select matInput formControlName="view" placeholder="view">
+            <mat-option *ngFor="let yesNo of yesNo" [value]="yesNo.value">
+              {{yesNo.value}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
       </div>
     </mat-step>
 
     <mat-step>
-      <ng-template matStepLabel>Done</ng-template>
-      <p>Click on submit button if you wish to finalize the capturing of worker function details.</p>
+      <ng-template>Done</ng-template>
+      <p>Click on submit button if you wish to finalize the capturing of function details.</p>
       <div>
         <button mat-button matStepperPrevious type="button">Back</button>
         <button mat-button>Submit</button>

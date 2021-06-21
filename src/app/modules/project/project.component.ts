@@ -20,6 +20,7 @@ export class ProjectComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
+  console.log("Aubs: ");
     this.projectService.getProjects().subscribe(data => {
       this.dataSource.data = data;
     })
@@ -30,7 +31,6 @@ export class ProjectComponent implements OnInit, AfterViewInit {
   }
 
   redirectToDetails(id) {
-     console.log('Testing String' + id)
      this.router.navigate(['projects/edit',id]);
   }
 

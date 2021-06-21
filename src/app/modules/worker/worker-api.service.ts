@@ -1,12 +1,12 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
-import {Project} from "../project/project.model";
-import {Observable} from "rxjs";
 import {Worker} from "./worker.model";
+import {Observable} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class WorkerApiService {
 
   readonly baseUrl = 'http://localhost:8080/api/worker';
@@ -23,7 +23,7 @@ export class WorkerApiService {
     return this.http.get<Worker[]>(`${this.baseUrl}`);
   }
 
- getWorker(workerId: string): Observable<Worker> {
+ getWorker(workerId: number): Observable<Worker> {
     return this.http.get<Worker>(`${this.baseUrl}/${workerId}`);
   }
 }

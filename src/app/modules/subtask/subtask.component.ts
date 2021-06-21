@@ -15,6 +15,8 @@ export class SubTaskComponent implements OnInit, AfterViewInit {
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
+   tasks: Task;
+
   public displayedColumns = ['siteTask', 'subTaskName','subTaskDescription','meterCost','squareMeterCost','cubicMeterCost','update', 'delete'];
   public dataSource = new MatTableDataSource<SubTask>();
 
@@ -25,7 +27,7 @@ export class SubTaskComponent implements OnInit, AfterViewInit {
   ngOnInit() {
       this.subTaskService.getSubTasks().subscribe(data => {
       this.dataSource.data = data;
-     })
+     });
   }
 
   ngAfterViewInit(): void {

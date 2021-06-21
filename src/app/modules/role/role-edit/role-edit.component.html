@@ -1,6 +1,6 @@
 <h1>Edit Role</h1>
 
-<form class="form-field" [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+<form *ngIf="formGroup" class="form-field" [formGroup]="formGroup" (ngSubmit)="onSubmit()">
   <mat-horizontal-stepper formArrayName="formArray">
     <mat-step formGroupName="0" [stepControl]="formArray?.get([0])" label="Role details">
       <div class="mat-step-container">

@@ -1,22 +1,23 @@
 import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
 import {MatPaginator, MatTableDataSource} from "@angular/material";
+import {Worker} from "./worker.model";
 import {Router} from "@angular/router";
 import {WorkerApiService} from "./worker-api.service";
-import {Worker} from "./worker.model";
 
 @Component({
   selector: 'app-worker',
   templateUrl: './worker.component.html',
   styleUrls: ['./worker.component.scss']
 })
-export class WorkerComponent implements OnInit {
+export class WorkerComponent implements OnInit, AfterViewInit {
 
   @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
-  public displayedColumns = ['name', 'middleName', 'surname', 'idNumber', 'birthDate', 'gender', 'view'];
+  public displayedColumns = ['name', 'middleName', 'surname', 'idNumber', 'birthDate', 'gender', 'update','delete'];
   public dataSource = new MatTableDataSource<Worker>();
 
-  constructor(private router: Router, private workerService: WorkerApiService) { }
+  constructor(private router: Router, private workerService: WorkerApiService) {
+  }
 
   ngOnInit() {
     this.workerService.getWorkers().subscribe(data => {
@@ -24,11 +25,19 @@ export class WorkerComponent implements OnInit {
     })
   }
 
-  addWorker() {
-    this.router.navigate(['workers/setup']);
+  ngAfterViewInit(): void {
+    this.dataSource.paginator = this.paginator;
   }
 
-  viewDetails(id) {
+  redirectToDetails(workerId) {
+     this.router.navigate(['workers/edit',workerId]);
+  }
 
+  redirectToDelete(id) {
+
+  }
+
+  addWorker() {
+    this.router.navigate(['workers/create']);
   }
 }

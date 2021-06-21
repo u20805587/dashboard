@@ -10,7 +10,7 @@ interface Status {
 }
 
 @Component({
-  selector: 'app-details',
+  selector: 'app-edit',
   templateUrl: './project-edit.component.html',
   styleUrls: ['./project-edit.component.scss']
 })
